@@ -11,25 +11,22 @@ void E_LED_4(void);
 
 int main()
 {
+  /*All led are using sink current */
+
     uint8_t i;
-    // config A0-A4 is digital input
+    /* config A0-A4 is digital input */
     PCFG0 = 0;
     PCFG1 = 1;
     PCFG2 =1;
     PCFG3 =0;
     
-    
-	TRISB= 0X00;
+    /* config output pin */
+  	TRISB= 0X00;
     TRISC=0X00;
     TRISD =0X00;
     TRISA =0X00;
-  //  TRISC =0X00;
-   // PORTA= 0XFF;
-   // PORTA =0X00;
-   // fun_1();
-   // PORTA = 0XFF; 
-   // PORTA = 0X00;
-   // PORTA =   0XFF;
+
+
     while(1)
     {
        
@@ -62,20 +59,13 @@ int main()
     PORTC = 0X00;
     PORTD = 0X00;
     PORTA = 0X00;
-   
-  
-	
-	
-	__delay_ms(500);
-	PORTB =0XFF;
-    PORTC =0XFF;
-    PORTD =0XFF;
-    PORTA =0XFF;
-   // PORTC =0X00;
-  
-    
+   	__delay_ms(500);
 
-	__delay_ms(500);
+    PORTB = 0XFF;
+    PORTC = 0XFF;
+    PORTD = 0XFF;
+    PORTA = 0XFF;
+  __delay_ms(500);
 
 	
 	
@@ -91,21 +81,16 @@ int main()
     
          PORTB = 0XAA;
          PORTC = 0XAA;
-         PORTD =  0XAA;
-         PORTA =  0XAA;
-       
+         PORTD = 0XAA;
+         PORTA = 0XAA;
+       __delay_ms(1000);
+         PORTB = 0X55;
+         PORTC = 0X55;
+         PORTD = 0X55;
+         PORTA = 0X55;
+      
         __delay_ms(1000);
-        
-        //  PORTA = 0XFF;
-        //  PORTC =0X00;
-        //__delay_ms(100);
-        
-        PORTA = 0X55;
-      //  PORTC = 0X55;
-        __delay_ms(1000);
-      //  PORTA= 0XFF;
-      //  PORTC = 0X00;
-       // __delay_ms(100);
+   
       }
       
         
@@ -117,13 +102,15 @@ int main()
  
   void E_LED_3(void)
 {
-	unsigned int  value = 0XFF;
+	uint8_t  value = 0XFF;
 	uint8_t index;
 	for(index =0;index <=7;index++)
 	{
-        value = (value<<1)|0XFE;
+        value = (value<<1)&0XFE;
 		PORTB = value ;
-      //  PORTC = value;
+        PORTA =value;
+
+      
 	
       //  __delay_ms(1000);
 	}
@@ -149,17 +136,9 @@ int main()
 	}
 	
 }
-  void fun_4(void)
-  {
-      PORTB =0X00;
-      int i;
-      for(i=0;i<8;i++)
-      {
-          __delay_ms(1000);
-          PORTB =(PORTB<<1)|0X01;
-      }
-  }
+*/
+ 
    
    
    
-   */
+   
