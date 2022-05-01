@@ -96,22 +96,41 @@ int main()
   void E_LED_3(void)
 {
   PORTC = 0XFF;
-	uint16_t  value = 0XFFFF;
-  uint8_t value2 =0XFF;
+  PORTD = 0XFF;
+  PORTA = 0XFF;
+  uint16_t  value = 0XFFFF;
+  uint8_t valueC =0XFF;
+  uint8_t valueD =0XFF;
+  uint8_t valueA =0XFF;
   uint8_t index;
-	for(index =0;index < 16;index++)
+	for(index =0;index <= 24;index++)
 	{
         value = (value<<1)&0XFFFE;
 	     	PORTB = value ;
-       __delay_ms(500);
+      __delay_ms(200);
         
         if(index >= 7)
         {
-            value2 = (value2<<1)&0XFE;
+            valueC = (valueC<<1)&0XFE;
             
-            PORTC = value2;
-          __delay_ms(500);
+            PORTC = valueC;
+          __delay_ms(200);
         
         }
+        if(index>=14)
+        {
+            valueD =(valueD<<1)&0XFE;
+            PORTD =valueD;
+            __delay_ms(200);
+            
+         }
+        if(index>=21)
+        {
+            valueA= (valueA<<1)&0XFE;
+            PORTA =valueA;
+            
+            
+        }
+            
     }
   }
