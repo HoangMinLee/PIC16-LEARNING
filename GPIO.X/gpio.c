@@ -95,22 +95,22 @@ int main()
 }
   void E_LED_3(void)
 {
-    PORTC = 0XFFFF;
+  PORTC = 0XFF;
 	uint16_t  value = 0XFFFF;
-    uint16_t value2;
-   
-	uint8_t index;
+  uint8_t value2 =0XFF;
+  uint8_t index;
 	for(index =0;index < 16;index++)
 	{
         value = (value<<1)&0XFFFE;
-		PORTB = value ;
-       // __delay_ms(500);
-        if(index >= 8)
+	     	PORTB = value ;
+       __delay_ms(500);
+        
+        if(index >= 7)
         {
-            value2 = value>>8;
-            value2 =(value2<<1)&0XFFFE;
+            value2 = (value2<<1)&0XFE;
+            
             PORTC = value2;
-          //  __delay_ms(500);
+          __delay_ms(500);
         
         }
     }
