@@ -92,53 +92,26 @@ int main()
         __delay_ms(1000);
    
       }
-      
-        
-        
-    
 }
- 
-
- 
   void E_LED_3(void)
 {
-	uint8_t  value = 0XFF;
+    PORTC = 0XFFFF;
+	uint16_t  value = 0XFFFF;
+    uint16_t value2;
+   
 	uint8_t index;
-	for(index =0;index <=7;index++)
+	for(index =0;index < 16;index++)
 	{
-        value = (value<<1)&0XFE;
+        value = (value<<1)&0XFFFE;
 		PORTB = value ;
-        PORTA =value;
-
-      
-	
-      //  __delay_ms(1000);
-	}
-    /* 
-    value = 0X00;
-    for(index =0;index <7;index++)
-	{
-        value = (value>>1)|0X80;
-		PORTB = value ;
-       // PORTC = value;
-	
-        __delay_ms(1000);
+       // __delay_ms(500);
+        if(index >= 8)
+        {
+            value2 = value>>8;
+            value2 =(value2<<1)&0XFFFE;
+            PORTC = value2;
+          //  __delay_ms(500);
+        
+        }
     }
-      */
   }
-    /*
-    value = 0X80;
-	for(index=0 ; index <=7 ;index++)
-	{
-        value = value 
-		PORTB = value >>index ;
-		__delay_ms(200);
-	}
-	
-}
-*/
- 
-   
-   
-   
-   
