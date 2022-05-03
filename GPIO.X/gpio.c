@@ -95,6 +95,8 @@ int main()
 }
   void E_LED_3(void)
 {
+ 
+  PORTB = 0XFF;  
   PORTC = 0XFF;
   PORTD = 0XFF;
   PORTA = 0XFF;
@@ -128,7 +130,7 @@ int main()
         {
             valueA= (valueA<<1)&0XFE;
             PORTA =valueA;
-            
+            __delay_ms(200);
             
         }
             
